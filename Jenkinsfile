@@ -27,12 +27,12 @@ pipeline {
                  script{
                     //sh 'BUILD_NUMBER = ${BUILD_NUMBER}'
                     if (BUILD_NUMBER == "1") {
-                        sh 'docker run --name flask-webapp -d -p 5000:5000 $DOCKER_HUB_REPO'
+                        sh 'docker run --name flask-webapp -d -p 4567:4567 $DOCKER_HUB_REPO'
                     }
                     else {
                         sh 'docker stop flask-webapp'
                         sh 'docker rm flask-webapp'
-                        sh 'docker run --name flask-webapp -d -p 5000:5000 $DOCKER_HUB_REPO'
+                        sh 'docker run --name flask-webapp -d -p 4567:4567 $DOCKER_HUB_REPO'
                     }
                     //sh 'echo "Latest image/code deployed"'
                 }

@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_REPO = "kajolsharma/pythonflaskapp"
+        DOCKER_HUB_REPO = "kajolsharma/braintree_flask_example"
         //CONTAINER_NAME = "pythonflaskapp"
         
     }
@@ -15,8 +15,8 @@ pipeline {
                 sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
                 //  Pushing Image to Repository
-                sh 'docker push kajolsharma/pythonflaskapp:$BUILD_NUMBER'
-                sh 'docker push kajolsharma/pythonflaskapp:latest'
+                sh 'docker push kajolsharma/braintree_flask_example:$BUILD_NUMBER'
+                sh 'docker push kajolsharma/braintree_flask_example:latest'
                 
                 echo "Image built and pushed to repository"
                 }
